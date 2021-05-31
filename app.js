@@ -1,11 +1,13 @@
-const searchUser = document.getElementById('searchUser');
-
 const github = new Github;
 
 const ui = new UI;
 
-searchUser.addEventListener('keyup', (e) => {
-    const userText = e.target.value;
+const searchBtn = document.getElementById('searchBtn');
+
+searchBtn.addEventListener('click', searchFun);
+
+function searchFun(){
+    const userText = document.getElementById('searchUser').value;
 
     if(userText !== ''){
         github.getUser(userText)
@@ -21,4 +23,4 @@ searchUser.addEventListener('keyup', (e) => {
     } else {
         ui.clearProfile();
     }
-});
+}
